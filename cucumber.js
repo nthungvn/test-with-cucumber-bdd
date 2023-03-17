@@ -5,6 +5,6 @@ module.exports = {
         },
         publishQuiet: true,
         paths: ['src/test/resources/features/**/*.{feature,feature.md}'],
-        require: ['src/test/js/step-definitions/**/*.(js)'],
+        require: ['src/test/js/step-definitions/**/*.js'],
     }
 }
