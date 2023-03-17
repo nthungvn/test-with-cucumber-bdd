@@ -1,0 +1,22 @@
+{
+  "name": "test-with-cucumber-bdd",
+  "version": "1.0.0",
+  "description": "Test with Cucumber BDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nthungvn/test-with-cucumber-bdd.git"
+  },
+  "author": "Hung Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nthungvn/test-with-cucumber-bdd/issues"
+  },
+  "homepage": "https://github.com/nthungvn/test-with-cucumber-bdd#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.0.0"
+  }
+}
