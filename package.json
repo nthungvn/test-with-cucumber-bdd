@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/nthungvn/test-with-cucumber-bdd#readme",
   "devDependencies": {
-    "@cucumber/cucumber": "^9.0.0"
+    "@cucumber/cucumber": "^9.0.0",
+    "chai": "^4.3.7",
+    "selenium-webdriver": "^4.8.1"
   }
 }
