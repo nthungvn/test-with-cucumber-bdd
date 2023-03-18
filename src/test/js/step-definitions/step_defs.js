@@ -17,6 +17,10 @@ Given('today is Friday', function () {
     this.today = 'Friday';
 });
 
+Given('today is {string}', function (givenDay) {
+    this.today = givenDay;
+});
+
 When('I ask whether it\'s Friday yet', function () {
     this.actualAnswer = isItFriday(this.today);
 });
