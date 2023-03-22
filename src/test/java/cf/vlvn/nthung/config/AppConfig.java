@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import static cf.vlvn.nthung.config.BrowserType.CHROME;
+
 public class AppConfig {
     private final Properties properties = new Properties();
 
@@ -13,6 +15,10 @@ public class AppConfig {
 
     public boolean isQuitBrowser() {
         return Boolean.parseBoolean(properties.getProperty("browser.quit", "true"));
+    }
+
+    public String browser() {
+        return properties.getProperty("browser", CHROME.code());
     }
 
     private void loadConfig() {
