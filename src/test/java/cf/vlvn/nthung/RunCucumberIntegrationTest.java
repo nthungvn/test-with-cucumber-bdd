@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features", snippets = CAMELCASE, stepNotifications = true)
-public class RunCucumberTest {
+@CucumberOptions(features = "classpath:features", snippets = CAMELCASE,
+        tags = "@integration-test", stepNotifications = true)
+public class RunCucumberIntegrationTest {
 }

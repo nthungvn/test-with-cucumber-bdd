@@ -23,6 +23,9 @@ public class AppConfig {
 
     public int browserQuitTimeout() {
         int timeoutInMinutes = Integer.parseInt(properties.getProperty("browser.quit.timeout.minutes", "1"));
+        if (timeoutInMinutes <= 0) {
+            return 1;
+        }
         return timeoutInMinutes * 60 * 1_000;
     }
 
