@@ -12,7 +12,7 @@ Feature: Is it Friday yet?
     When I ask whether it's Friday yet
     Then I should be told "TGIF"
 
-  Scenario Outline: Sunday isn't Friday
+  Scenario Outline: Sunday isn't Friday - Outline
     Given today is "<day>"
     When I ask whether it's Friday yet
     Then I should be told "<answer>"

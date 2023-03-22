@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GoogleSearchStepDefs {
@@ -62,5 +63,11 @@ public class GoogleSearchStepDefs {
         String currentUrl = context.getDriver().getCurrentUrl();
         log.debug("Opened url: {}", currentUrl);
         assertTrue(youtubePage.isOpen(currentUrl));
+    }
+
+    @Then("I see the answer {string} is highlighted")
+    public void iSeeTheAnswerIsHighlighted(String answer) {
+        String actualAnswer = googlePage.getTheAnswerSnippet();
+        assertEquals(answer, actualAnswer);
     }
 }

@@ -13,6 +13,7 @@ public class GooglePage {
     private static final By VIDEO_LINK = By.className("X5OiLe");
     private static final By SEARCH_INPUT = By.name("q");
     private static final String HOME_PAGE = "https://www.google.com/";
+    private static final By ANSWER_SNIPPET = By.cssSelector("[data-tts='answers']");
     private final WebDriver driver;
 
     public GooglePage(TestContext context) {
@@ -42,4 +43,8 @@ public class GooglePage {
         return titleEl.getText();
     }
 
+    public String getTheAnswerSnippet() {
+        WebElement answerEl = driver.findElement(ANSWER_SNIPPET);
+        return answerEl.getAttribute("data-tts-text");
+    }
 }
