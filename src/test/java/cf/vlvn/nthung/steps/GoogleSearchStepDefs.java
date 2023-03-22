@@ -3,7 +3,6 @@ package cf.vlvn.nthung.steps;
 import cf.vlvn.nthung.pagemodel.GooglePage;
 import cf.vlvn.nthung.pagemodel.YoutubePage;
 import cf.vlvn.nthung.shared.TestContext;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,18 +22,12 @@ public class GoogleSearchStepDefs {
     private WebElement videoSearchResult;
 
     public GoogleSearchStepDefs(TestContext context,
-                                GooglePage googlePage, YoutubePage youtubePage) {
+                                GooglePage googlePage,
+                                YoutubePage youtubePage) {
         this.context = context;
         this.googlePage = googlePage;
         this.youtubePage = youtubePage;
 
-    }
-
-    @Given("I have my favourite Chrome browser open")
-    public void iHaveMyFavouriteChromeBrowserOpen (Scenario scenario) {
-        if (scenario.getSourceTagNames().contains("@integration-test")) {
-            context.getDriver();
-        }
     }
 
     @Given("I am on the Google Search page")
