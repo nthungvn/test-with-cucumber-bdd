@@ -21,6 +21,11 @@ public class AppConfig {
         return properties.getProperty("browser", CHROME.code());
     }
 
+    public int browserQuitTimeout() {
+        int timeoutInMinutes = Integer.parseInt(properties.getProperty("browser.quit.timeout.minutes", "1"));
+        return timeoutInMinutes * 60 * 1_000;
+    }
+
     private void loadConfig() {
         try (InputStream inputStream = this.getClass().getResourceAsStream("/app.properties")) {
             properties.load(inputStream);
