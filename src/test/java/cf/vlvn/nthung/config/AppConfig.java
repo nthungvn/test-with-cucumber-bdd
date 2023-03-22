@@ -22,11 +22,11 @@ public class AppConfig {
     }
 
     public int browserQuitTimeout() {
-        int timeoutInMinutes = Integer.parseInt(properties.getProperty("browser.quit.timeout.minutes", "1"));
+        int timeoutInMinutes = Integer.parseInt(properties.getProperty("browser.quit.timeout.seconds", "1"));
         if (timeoutInMinutes <= 0) {
             return 1;
         }
-        return timeoutInMinutes * 60 * 1_000;
+        return timeoutInMinutes * 1_000;
     }
 
     private void loadConfig() {
