@@ -15,7 +15,7 @@ const GOOGLE_HOME_PAGE = "https://www.google.com";
 
 let driver;
 
-And('I am on the Google Search page', {timeout: 60 * 1000}, async function () {
+And('I am on the Google Search page', {timeout: 2 * 5000}, async function () {
     driver = await new Builder().forBrowser('chrome').build();
     await driver.get(GOOGLE_HOME_PAGE);
 });
@@ -25,13 +25,13 @@ When('I search with the keyword {string}', {timeout: 2 * 5000}, async function (
     element.sendKeys(searchTerm, Key.RETURN);
 });
 
-Then('I see the answer {string} is highlighted', async function (answer) {
+Then('I see the answer {string} is highlighted', {timeout: 2 * 5000}, async function (answer) {
     const answerEl = driver.wait(until.elementLocated(ANSWER_SNIPPET));
     const actualAnswer = await answerEl.getAttribute("data-tts-text");
     assert.equal(answer, actualAnswer);
 });
 
-Then('The search result number {int} will be the song {string}', async function (result, songName) {
+Then('The search result number {int} will be the song {string}', {timeout: 2 * 5000}, async function (result, songName) {
     // const videos = await driver.findElements(VIDEO_RESULTS);
     // this.videoSearchResult = videos[result - 1];
     // this.expectedSongName = songName;
@@ -41,7 +41,7 @@ Then('The search result number {int} will be the song {string}', async function 
     // assert.equal(true, title.contains(songName));
 });
 
-Then('I can play it on Youtube', async function () {
+Then('I can play it on Youtube', {timeout: 2 * 5000}, async function () {
     // const videoLink = await this.videoSearchResult.findElements(VIDEO_LINK).get(1);
     // videoLink.click();
     // const currentUrl = await driver.getCurrentUrl();
@@ -53,7 +53,7 @@ Then('I can play it on Youtube', async function () {
     // assert.equal(true, titleOfVideoPlaying.contains(this.expectedSongName));
 });
 
-Then('I want to close browser', async function () {
-    await driver.quit();
+Then('I want to close browser', {timeout: 2 * 5000}, async function () {
+    // await driver.quit();
 });
 
