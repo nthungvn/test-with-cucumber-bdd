@@ -17,10 +17,3 @@ Feature: Trending search
     Then The search result number 1 will be the song "ưng quá chừng (loop version)"
     And I can play it on Youtube
     Then I want to close browser
-
-  @youtube
-  Scenario: Search Trending Music on Youtube
-    Given I am on the Youtube page
-    When I search "ung qua chung loop version"
-    Then I can play the first result that will be the song "ưng quá chừng (loop version)" I want
-    And I want to close browser

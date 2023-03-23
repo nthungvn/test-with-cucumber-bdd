@@ -20,6 +20,7 @@ public class GoogleSearchStepDefs {
     private final GooglePage googlePage;
     private final YoutubePage youtubePage;
     private WebElement videoSearchResult;
+    private String expectedSongName;
 
     public GoogleSearchStepDefs(TestContext context,
                                 GooglePage googlePage,
@@ -45,6 +46,7 @@ public class GoogleSearchStepDefs {
     @Then("The search result number {int} will be the song {string}")
     public void theSearchResultNumberWillBeTheSong(int result, String songName) {
         videoSearchResult = googlePage.getVideoSearchResultAt(result);
+        this.expectedSongName = songName;
         String title = googlePage.getNameFromVideoResult(videoSearchResult);
         log.debug("The song name {}", title);
         assertTrue(title.contains(songName));
@@ -56,6 +58,10 @@ public class GoogleSearchStepDefs {
         String currentUrl = context.getDriver().getCurrentUrl();
         log.debug("Opened url: {}", currentUrl);
         assertTrue(youtubePage.isOpen(currentUrl));
+
+        String titleOfVideoPlaying = youtubePage.getTitleOfVideoPlaying();
+        log.debug("The playing song name {}", titleOfVideoPlaying);
+        assertTrue(titleOfVideoPlaying.contains(expectedSongName));
     }
 
     @Then("I see the answer {string} is highlighted")
