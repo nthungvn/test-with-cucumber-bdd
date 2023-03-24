@@ -4,7 +4,9 @@
   "description": "Test with Cucumber BDD",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "unit-test": "cucumber-js --tags '@unit-test'",
+    "integration-test": "cucumber-js --tags '@integration-test'"
   },
   "repository": {
     "type": "git",
