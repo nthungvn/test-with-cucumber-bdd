@@ -18,6 +18,8 @@ Feature: Is it Friday yet?
     Then I should be told "<answer>"
     Examples:
       | day            | answer |
+      | Monday         | Nope   |
       | Friday         | TGIF   |
+      | Saturday       | Nope   |
       | Sunday         | Nope   |
       | anything else! | Nope   |

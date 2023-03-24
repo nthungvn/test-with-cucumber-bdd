@@ -43,6 +43,13 @@ public class GoogleSearchStepDefs {
         searchInput.submit();
     }
 
+    @Then("I see the answer {string} is highlighted")
+    public void iSeeTheAnswerIsHighlighted(String answer) {
+        String actualAnswer = googlePage.getTheAnswerSnippet();
+        log.debug("The result getting from Google: {}", actualAnswer);
+        assertEquals(answer, actualAnswer);
+    }
+
     @Then("The search result number {int} will be the song {string}")
     public void theSearchResultNumberWillBeTheSong(int result, String songName) {
         videoSearchResult = googlePage.getVideoSearchResultAt(result);
@@ -62,11 +69,5 @@ public class GoogleSearchStepDefs {
         String titleOfVideoPlaying = youtubePage.getTitleOfVideoPlaying();
         log.debug("The playing song name {}", titleOfVideoPlaying);
         assertTrue(titleOfVideoPlaying.contains(expectedSongName));
-    }
-
-    @Then("I see the answer {string} is highlighted")
-    public void iSeeTheAnswerIsHighlighted(String answer) {
-        String actualAnswer = googlePage.getTheAnswerSnippet();
-        assertEquals(answer, actualAnswer);
     }
 }
